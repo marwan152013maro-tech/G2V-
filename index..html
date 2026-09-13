@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الموسوعة الموسعة للمجموعة الشمسية</title>
+  <style>
+    /* ==========================================
+       1. إعدادات التنظيف والأنماط العامة للموسوعة
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #06090e;
+      color: #c9d1d9;
+      line-height: 1.8;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================
+       2. تنسيق رأس الصفحة والترويسة
+       ========================================== */
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 2px solid #21262d;
+      margin-bottom: 35px;
+      background: linear-gradient(
+        180deg, 
+        #101622 10%, 
+        #06090e 100%
+      );
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      color: #58a6ff;
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+    }
+
+    header p {
+      color: #8b949e;
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================
+       نافذة الدخول إلى المحاكاة 3D (DIV)
+       ========================================== */
+    .interactive-launch-card {
+      background: linear-gradient(135deg, #101622, #161b22);
+      border: 2px solid #58a6ff;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 35px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(88, 166, 255, 0.15);
+    }
+
+    .interactive-launch-card:hover {
+      transform: translateY(-4px);
+      border-color: #79c0ff;
+      box-shadow: 0 10px 35px rgba(88, 166, 255, 0.3);
+    }
+
+    .interactive-launch-card h2 {
+      color: #58a6ff;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .interactive-launch-card p {
+      color: #8b949e;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .launch-btn {
+      background: #238636;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .launch-btn:hover {
+      background: #2ea043;
+    }
+
+    /* ==========================================
+       3. عناوين الأقسام وشبكة البطاقات
+       ========================================== */
+    .section-title {
+      color: #f0f6fc;
+      font-size: 1.6rem;
+      margin: 45px 0 25px 0;
+      border-right: 5px solid #58a6ff;
+      padding-right: 18px;
+      background: rgba(22, 27, 34, 0.6);
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #58a6ff;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #21262d;
+      padding-bottom: 12px;
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+    }
+
+    .card h3 {
+      color: #f0f6fc;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #8b949e;
+      margin-bottom: 12px;
+    }
+
+    .highlight {
+      color: #58a6ff;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #21262d;
+      color: #79c0ff;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 14px;
+      margin-top: 6px;
+    }
+
+    .info-box {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .info-box h2 {
+      color: #f0f6fc;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 12px;
+    }
+
+    .info-box ul {
+      list-style: none;
+    }
+
+    .info-box li {
+      position: relative;
+      padding-right: 25px;
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+      color: #a3b1c2;
+      line-height: 1.8;
+    }
+
+    .info-box li::before {
+      content: "✦";
+      color: #58a6ff;
+      font-size: 1.2rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 25px;
+      font-size: 0.92rem;
+      color: #484f58;
+      border-top: 1px solid #21262d;
+    }
+
+    /* ==========================================
+       4. نافذة ملء الشاشة الخاصة بالمحاكاة الواقعية
+       ========================================== */
+    #simulator-fullscreen {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      z-index: 999999;
+      display: none;
+      overflow: hidden;
+      user-select: none;
+      color: #fff;
+    }
+
+    #simulator-fullscreen.active {
+      display: block;
+    }
+
+    #three-canvas-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #ui {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(10, 12, 24, 0.85);
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.85);
+      max-width: 290px;
+      z-index: 100;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .top-left-controls {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 100;
+      display: flex;
+      gap: 10px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .control-btn {
+      background: rgba(15, 15, 25, 0.85);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .control-btn:hover {
+      background: #0066ff;
+      border-color: #0066ff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5);
+    }
+
+    #pause-btn:hover {
+      background: #ff0000;
+      border-color: #ff0000;
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+    }
+
+    #exit-sim-btn {
+      background: rgba(218, 54, 51, 0.85);
+      border-color: rgba(255, 100, 100, 0.3);
+    }
+
+    #exit-sim-btn:hover {
+      background: #f85149;
+      border-color: #f85149;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    button.planet-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    button.planet-btn:hover {
+      background: #0066ff;
+      border-color: #0066ff;
+    }
+
+    #info-card {
+      position: absolute;
+      bottom: 20px;
+      right: 15px;
+      width: 360px;
+      background: rgba(12, 16, 32, 0.94);
+      border: 1px solid rgba(0, 150, 255, 0.4);
+      border-radius: 14px;
+      padding: 18px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+      z-index: 90;
+      transform: translateX(420px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #info-card.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    #info-card h2 {
+      margin: 0 0 4px 0;
+      font-size: 18px;
+      color: #4db8ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #info-card .close-card {
+      cursor: pointer;
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    #info-card .close-card:hover {
+      color: #fff;
+    }
+
+    .info-badge {
+      display: inline-block;
+      background: rgba(0, 102, 255, 0.2);
+      border: 1px solid rgba(0, 102, 255, 0.5);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      margin-bottom: 10px;
+      color: #99ccff;
+    }
+
+    #info-card p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #ddd;
+      margin: 6px 0;
+    }
+
+    #simulator-fullscreen.cinema-mode #ui,
+    #simulator-fullscreen.cinema-mode .top-left-controls,
+    #simulator-fullscreen.cinema-mode #info-card {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(0.95) !important;
+    }
+
+    #exit-cinema-tip {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #aaa;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    #simulator-fullscreen.cinema-mode #exit-cinema-tip {
+      opacity: 1;
+    }
+  </style>
+
+  <!-- مكتبات Three.js الأصلية كما في كودك -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- رأس الصفحة -->
+    <header>
+      <h1>الموسوعة العلمية الشاملة للمجموعة الشمسية</h1>
+      <p>مرجع استكشافي فلكي شامل يجمع بين النصوص العلمية الموثقة والمحاكاة ثلاثية الأبعاد الواقعية</p>
+    </header>
+
+    <!-- النافذة (DIV) التي تنقلك للمحاكاة الواقعية بملء الشاشة عند الضغط عليها -->
+    <div class="interactive-launch-card" onclick="openSimulator()">
+      <h2>🪐 فتح شاشة المحاكاة الفلكية الواقعية 3D</h2>
+      <p>اضغط هنا لتشغيل النموذج ثلاثي الأبعاد بكامل واقعيته وخرائطه الفضائية بملء الشاشة على نفس النافذة</p>
+      <button class="launch-btn">
+        <span>🚀 تشغيل المحاكاة بملء الشاشة</span>
+      </button>
+    </div>
+
+    <!-- القسم الأول: النجم المركزي -->
+    <h2 class="section-title">1. النجم المركزي والقلب النابض</h2>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">☀️</span>
+        <div>
+          <h3>الشمس (The Sun)</h3>
+          <span class="badge">نوع النجم: قزم أصفر (G2V)</span>
+        </div>
+      </div>
+      <p>
+        تشكل الشمس ما نسبته <span class="highlight">99.86%</span> من إجمالي كتلة النظام الشمسي بأكمله.
+        وبسبب جاذبيتها الضخمة، تدور جميع الكواكب والأجسام في مدارات بيضاوية محددة حولها.
+      </p>
+      <p>
+        يبلغ قطر الشمس حوالي 1.39 مليون كيلومتر، وهو ما يعادل 109 أضعاف قطر كوكب الأرض.
+        تبلغ درجة حرارة مركزها نحو 15 مليون درجة مئوية نتيجة لعمليات الاندماج النووي.
+      </p>
+      <p>
+        يتكون تركيبها الكيميائي بشكل أساسي من غاز <span class="highlight">الهيدروجين (73%)</span> 
+        وغاز <span class="highlight">الهيليوم (25%)</span>، بالإضافة إلى نسب ضئيلة من عناصر أخرى.
+      </p>
+      <p>
+        يستغرق ضوء الشمس للوصول إلى سطح كوكب الأرض حوالي <span class="highlight">8 دقائق و20 ثانية</span>،
+        وتدور الشمس حول مركز مجرتنا بسرعة تصل إلى 220 كم/ثانية.
+      </p>
+    </div>
+
+    <!-- القسم الثاني: الكواكب الصخرية -->
+    <h2 class="section-title">2. الكواكب الداخلية (الصخرية)</h2>
+    <div class="grid">
+      
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🪨</span>
+          <div>
+            <h3>عطارد (Mercury)</h3>
+            <span class="badge">الأقرب للشمس والأصغر حجماً</span>
+          </div>
+        </div>
+        <p>
+          أصغر كواكب المجموعة الشمسية حجماً وأقربها إلى الشمس، ولا يمتلك أي أقمار طبيعية.
+          يمتلك قلباً حديدياً ضخماً يشكل نحو 85% من نصف قطره الكلي.
+        </p>
+        <p>
+          لعدم وجود غلاف جوي يحبس الحرارة، يقع تفاوت حراري هائل بين النهار 
+          (<span class="highlight">430°م</span>) والليل (<span class="highlight">-180°م</span>).
+        </p>
+        <p>
+          يُعتبر أسرع الكواكب إكمالاً لدورته حول الشمس، حيث تعادل السنة فيه 88 يوماً أرضياً،
+          بينما يدور ببطء شديد حول نفسه ليعادل اليوم فيه 59 يوماً أرضياً.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🔥</span>
+          <div>
+            <h3>الزهرة (Venus)</h3>
+            <span class="badge">أحر كوكب في المنظومة</span>
+          </div>
+        </div>
+        <p>
+          يُطلق عليه توأم الأرض لتشابه حجميهما وكتلتيهما، لكنه يمتلك غلافاً جوياً سميكاً 
+          يتكون بنسبة 96% من غاز ثاني أكسيد الكربون وسحب من حمض الكبريتيك.
+        </p>
+        <p>
+          الضغط الجوي على سطحه يعادل 90 ضعف الضغط على الأرض.
+          يتسبب غلافه بظاهرة احتباس حراري شديدة جعلته <span class="highlight">أحر كوكب</span> 
+          بدرجة حرارة ثابتة تصل إلى (<span class="highlight">465°م</span>).
+        </p>
+        <p>
+          يدور حول نفسه بعكس اتجاه دوران معظم الكواكب، 
+          ويوم كوكب الزهرة (243 يوماً أرضياً) أطول من سنته (225 يوماً أرضياً).
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🌍</span>
+          <div>
+            <h3>الأرض (Earth)</h3>
+            <span class="badge">موطن الحياة والأعلى كثافة</span>
+          </div>
+        </div>
+        <p>
+          الكوكب الوحيد المعروف بوجود الحياة والماء السائل على سطحه، 
+          حيث تغطي المحيطات المائية نحو 71% من إجمالي مساحته.
+        </p>
+        <p>
+          يُعتبر كوكب الأرض <span class="highlight">الأعلى كثافة</span> بين كافة كواكب المجموعة الشمسية 
+          بمعدل يصل إلى (5.51 جم/سم³).
+        </p>
+        <p>
+          يتكون غلافه الجوي من النيتروجين والأكسجين، ويحميه غلاف مغناطيسي قوي ناتج 
+          عن حركة الحديد المنصهر في لبه، وله قمر طبيعي واحد.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🔴</span>
+          <div>
+            <h3>المريخ (Mars)</h3>
+            <span class="badge">الكوكب الأحمر الشهير</span>
+          </div>
+        </div>
+        <p>
+          يكتسب لونه الأحمر الشهير من الانتشار الواسع لأكسيد الحديد (الصدأ) على سطحه.
+          يمتلك غلافاً جوياً رقيقاً جداً يتكون أساساً من ثاني أكسيد الكربون.
+        </p>
+        <p>
+          يضم المريخ <span class="highlight">بركان أوليمبوس</span> وهو أعلى جبل وبركان في كامل النظام الشمسي 
+          بارتفاع يصل إلى 21 كيلومتراً (ثلاثة أضعاف قمة إيفرست).
+        </p>
+        <p>
+          يمتلك قمرين صغيرين وغير منتظمي الشكل هما (فوبوس وديموس) يُعتقد أنهما كويكبان مأسوران.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- القسم الثالث: الكواكب العمالقة -->
+    <h2 class="section-title">3. الكواكب الخارجية (العمالقة الغازية والجليدية)</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🪐</span>
+          <div>
+            <h3>المشتري (Jupiter)</h3>
+            <span class="badge">عملاق الكواكب وزعيمها</span>
+          </div>
+        </div>
+        <p>
+          <span class="highlight">أكبر كواكب</span> النظام الشمسي على الإطلاق؛ 
+          كتلته تزيد عن ضعفي ونصف كتلة باقي الكواكب مجتمعة.
+        </p>
+        <p>
+          يتكون فيظه من الهيدروجين والهيليوم، وتتميز صيغته بوجود "البقعة الحمراء العظيمة" 
+          وهي عاصفة ضخمة مستمرة منذ أكثر من 300 عام.
+        </p>
+        <p>
+          يمتلك أقوى مجال مغناطيسي كوكبي وأكثر من <span class="highlight">95 قمراً</span>، 
+          أشهرها الأقمار الجاليلية الأربعة (إيو، أوروبا، غانيميد، وكاليستو).
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">💫</span>
+          <div>
+            <h3>زحل (Saturn)</h3>
+            <span class="badge">ملك الحلقات المبهرة</span>
+          </div>
+        </div>
+        <p>
+          اشتهر بنظامه الحلقي المعقد والمبهر المكون من مليارات القطع الثلجية والصخور والغبار.
+        </p>
+        <p>
+          يُعد زحل <span class="highlight">أقل الكواكب كثافة</span> في النظام الشمسي 
+          (كثافته 0.69 جم/سم³ وهي أقل من كثافة الماء، فلو وُجد محيط يستوعبه ليعوم فوقه).
+        </p>
+        <p>
+          يمتلك أكبر عدد مؤكد من الأقمار (أكثر من <span class="highlight">146 قمراً</span>)، 
+          وأبرزها قمر "تيتان" ذو الغلاف الجوي السميك وبحيرات الميثان.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">❄️</span>
+          <div>
+            <h3>أورانوس (Uranus)</h3>
+            <span class="badge">العملاق الجليدي المائل</span>
+          </div>
+        </div>
+        <p>
+          عملاق جليدي يتكون غلافه من الماء والنشادر والميثان الذي يمنحه لونه الأزرق المائل للخضرة.
+        </p>
+        <p>
+          يسجل أقل درجات الحرارة القياسية بالسطح في غلافه برقم يسجل (<span class="highlight">-224°م</span>).
+        </p>
+        <p>
+          يتميز بكون ميل محور دورانه يبلغ 98 درجة، مما يجعله يدور على جانبه كأنه يتدحرج في مداره، 
+          ويمتلك 28 قمراً وحلقات خفيفة.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">💨</span>
+          <div>
+            <h3>نيبتون (Neptune)</h3>
+            <span class="badge">الكوكب الأزرق وملك الرياح</span>
+          </div>
+        </div>
+        <p>
+          أبعد كواكب المجموعة الشمسية عن الشمس. عملاق جليدي ذو لون أزرق ياقوتي زاهٍ، 
+          وتستغرق سنته 165 سنة أرضية لإكمال دورته.
+        </p>
+        <p>
+          تهب في جوه <span class="highlight">أسرع رياح</span> في النظام الشمسي 
+          متجاوزة سرعة (<span class="highlight">2100 كم/ساعة</span>).
+        </p>
+        <p>
+          يمتلك 16 قمراً أشهرها قمر "ترايتون" الذي يدور بالاتجاه المعاكس لدوران الكوكب.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- القسم الرابع: الأحزمة والأجرام الأخرى -->
+    <h2 class="section-title">4. الأحزمة والأجرام الأخرى في المنظومة</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">☄️</span>
+          <div>
+            <h3>حزام الكويكبات (Asteroid Belt)</h3>
+            <span class="badge">الفاصل الصخري الداخلي</span>
+          </div>
+        </div>
+        <p>
+          منطقة على شكل حلقة تقع بين مداري كوكبي <span class="highlight">المريخ والمشتري</span>.
+          تحتوي على ملايين الصخور والأجسام المعدنية التي لم تندمج لتشكيل كوكب بسبب جاذبية المشتري.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🟤</span>
+          <div>
+            <h3>الكواكب القزمة (Dwarf Planets)</h3>
+            <span class="badge">أجرام كروية صغيرة</span>
+          </div>
+        </div>
+        <p>
+          أجرام تملك جاذبية كافية تجعلها كروية وتدور حول الشمس، أشهرها <span class="highlight">بلوتو</span> 
+          إضافة إلى إيريس، وماكيماكي، وهوميا، وسيريس.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🌌</span>
+          <div>
+            <h3>حزام كويبر وسحابة أورت</h3>
+            <span class="badge">أطراف النظام الشمسي</span>
+          </div>
+        </div>
+        <p>
+          مناطق شاسعة متجمدة تقع خلف مدار كوكب نيبتون. يُعد حزام كويبر موطناً لبلوتو، 
+          بينما تُعتبر <span class="highlight">سحابة أورت</span> الغلاف الخارجي الأبعد والمصدر الأساسي للمذنبات.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">✨</span>
+          <div>
+            <h3>المذنبات والشهب (Comets & Meteors)</h3>
+            <span class="badge">زوار السماء المتجولون</span>
+          </div>
+        </div>
+        <p>
+          المذنبات كرات متجمدة تذوب مطلقة ذيلاً براقاً عند اقترابها من الشمس، 
+          والشهب بقايا تحترق بالغلاف الجوي مخلفة خطوطاً ضوئية ساحرة.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- القسم الخامس: الملخص الأكاديمي -->
+    <div class="info-box">
+      <h2>5. ملخص الحقائق والأرقام العامة عن المجموعة الشمسية</h2>
+      <ul>
+        <li><strong>عمر وقدم النظام الشمسي:</strong> تشكلت المنظومة منذ حوالي <strong>4.6 مليار سنة</strong>.</li>
+        <li><strong>الترتيب الصحيح للكواكب:</strong> عطارد ⬅️ الزهرة ⬅️ الأرض ⬅️ المريخ ⬅️ المشتري ⬅️ زحل ⬅️ أورانوس ⬅️ نيبتون.</li>
+        <li><strong>تصنيف الكواكب الرئيسي:</strong> كواكب صخرية صلبة (الداخلية)، وعمالقة غازية وجليدية (الخارجية).</li>
+        <li><strong>حقيقة الصوت في الفضاء:</strong> فراغ تام لا ينتقل الصوت خلاله لعدم وجود وسيط مادي.</li>
+        <li><strong>الموقع المجري:</strong> تقع شمسنا في ذراع "أوريون" الحلزوني داخل مجرة <strong>درب التبانة</strong>.</li>
+      </ul>
+    </div>
+
+    <footer>
+      الموسوعة العلمية الشاملة للمجموعة الشمسية &copy; 2026
+    </footer>
+
+  </div>
+
+  <!-- ============================================================
+       نافذة المحاكاة الواقعية الأصلية بكامل كودها (Fullscreen Modal)
+       ============================================================ -->
+  <div id="simulator-fullscreen">
+    
+    <div id="three-canvas-container"></div>
+
+    <div class="top-left-controls">
+      <button class="control-btn" id="pause-btn" onclick="togglePause()">
+        <span id="pause-icon">⏸️</span>
+        <span id="pause-text">إيقاف مؤقت</span>
+      </button>
+      
+      <button class="control-btn" onclick="toggleCinemaMode()">
+        🎬 الوضع السينمائي
+      </button>
+
+      <button class="control-btn" id="exit-sim-btn" onclick="closeSimulator()">
+        ✖ العودة للموسوعة
+      </button>
+    </div>
+
+    <div id="ui">
+      <h3>🌌 تشريح الكواكب الداخلية</h3>
+      <p>اختر كوكباً لعرض تفاصيل طبقاته الداخلية والجاذبية.</p>
+      
+      <div class="btn-container">
+        <button class="planet-btn" onclick="selectPlanet('sun')">☀️ الشمس</button>
+        <button class="planet-btn" onclick="selectPlanet('mercury')">عطارد</button>
+        <button class="planet-btn" onclick="selectPlanet('venus')">الزهرة</button>
+        <button class="planet-btn" onclick="selectPlanet('earth')">🌎 الأرض</button>
+        <button class="planet-btn" onclick="selectPlanet('mars')">المريخ</button>
+        <button class="planet-btn" onclick="selectPlanet('jupiter')">المشتري</button>
+        <button class="planet-btn" onclick="selectPlanet('saturn')">زحل</button>
+        <button class="planet-btn" onclick="selectPlanet('uranus')">أورانوس</button>
+        <button class="planet-btn" onclick="selectPlanet('neptune')">نيبتون</button>
+        <button class="planet-btn" style="background: #238636;" onclick="resetCamera()">🔄 الرؤية الشاملة</button>
+      </div>
+    </div>
+
+    <div id="info-card">
+      <h2>
+        <span id="card-title">اسم الكوكب</span>
+        <span class="close-card" onclick="closeInfoCard()">✖</span>
+      </h2>
+      <div class="info-badge" id="card-type">نوع الكوكب</div>
+      <p id="card-layers">🏛️ بنية الطبقات الداخلية: ...</p>
+      <p id="card-stats">⚖️ الجاذبية والحجم: ...</p>
+    </div>
+
+    <div id="exit-cinema-tip">اضغط على زر (الوضع السينمائي) أو ESC للخروج</div>
+
+  </div>
+
+  <!-- ============================================================
+       كود Three.js الواقعي 100% كما وضعته تماماً بدون أي اختزال
+       ============================================================ -->
+  <script>
+    // بيانات بطاقات الكواكب كما في كودك الأصلي
+    const planetDetails = {
+      sun: {
+        title: "الشمس (The Sun)",
+        type: "نجم قزم أصفر (G2V)",
+        layers: "اللب النووي (اندماج الهيدروجين)، منطقة الإشعاع، منطقة الحمل الحراري، الغلاف الضوئي (الفوتوسفير).",
+        stats: "الجاذبية: 274 م/ث² (28 ضعف الأرض) | القطر: 1,392,700 كم | الكتلة: 99.86% من كتلة النظام بأكمله."
+      },
+      mercury: {
+        title: "عطارد (Mercury)",
+        type: "كوكب صخري داخلي",
+        layers: "قلب حديدي عملاق يشكل 85% من نصف قطره، يعلوه وشاح سيليكاتي رقيق وقشرة بازلتية.",
+        stats: "الجاذبية: 3.7 م/ث² (0.38 من الأرض) | القطر: 4,879 كم | مدة الدوران حول الشمس: 88 يوماً."
+      },
+      venus: {
+        title: "الزهرة (Venus)",
+        type: "كوكب صخري - توأم الأرض",
+        layers: "قلب حديدي معدني، وشاح صخري سميك، وقشرة بركانية غنية بسيليكات المغنيسيوم.",
+        stats: "الجاذبية: 8.87 م/ث² (0.91 من الأرض) | الحرارة: 465°م ثابتة تحت ضغط 90 ضعف الأرض."
+      },
+      earth: {
+        title: "الأرض (Earth)",
+        type: "كوكب صخري مائي (واحة الحياة)",
+        layers: "لب داخلي صلب (حديد ونيكل عند 5400°م)، لب خارجي سائل، وشاح صخري حركي، وقشرة تكتونية.",
+        stats: "الجاذبية: 9.807 م/ث² | الكثافة: 5.51 جم/سم³ (الأعلى في النظام الشمسي) | قمر طبيعي واحد."
+      },
+      mars: {
+        title: "المريخ (Mars)",
+        type: "الكوكب الأحمر الصخري",
+        layers: "لب حديدي كبريتي كثيف، وشاح سيليكاتي خامل، وقشرة غنية بأكسيد الحديد (الصدأ).",
+        stats: "الجاذبية: 3.72 م/ث² (0.38 من الأرض) | القطر: 6,779 كم | يضم أعلى بركان (أوليمبوس 21 كم)."
+      },
+      jupiter: {
+        title: "المشتري (Jupiter)",
+        type: "عملاق غازي ضخم",
+        layers: "نواة صخرية جليدية مضغوطة، محيط فائق من الهيدروجين المعدني السائل، وغلاف غازي خارجي.",
+        stats: "الجاذبية: 24.79 م/ث² (2.5 ضعف الأرض) | الكتلة: 318 ضعف الأرض | أكثر من 95 قمراً."
+      },
+      saturn: {
+        title: "زحل (Saturn)",
+        type: "عملاق غازي ذو حلقات مهيبة",
+        layers: "لب صخري مضغوط، طبقة هيدروجين وهيليوم معدنية مسالة، وغلاف غازي هيدروجيني.",
+        stats: "الكثافة: 0.69 جم/سم³ (يطفو فوق الماء) | الجاذبية: 10.44 م/ث² | أكثر من 146 قمراً."
+      },
+      uranus: {
+        title: "أورانوس (Uranus)",
+        type: "عملاق جليدي مائل",
+        layers: "لب صخري صغير، وشاح هائل من موائع الجليد المضغوط (ماء، ميثان، أمونيا)، وغلاف غازي أزرق.",
+        stats: "الجاذبية: 8.69 م/ث² | ميل المحور: 98 درجة (يدور متدحرجاً) | أدنى حرارة مسجلة: -224°م."
+      },
+      neptune: {
+        title: "نيبتون (Neptune)",
+        type: "عملاق جليدي أزرق وملك الرياح",
+        layers: "لب حديدي سيليكاتي صخري، وشاح مائي وميثاني ثلجي، وغلاف جوي ياقوتي عاصف.",
+        stats: "سرعة الرياح: تتجاوز 2,100 كم/ساعة | الجاذبية: 11.15 م/ث² | مدة المدار: 165 سنة أرضية."
+      }
+    };
+
+    const simContainer = document.getElementById('simulator-fullscreen');
+    let isSimulatorOpen = false;
+    let isInitialized = false;
+
+    // فتح وإغلاق شاشة المحاكاة ملء الشاشة
+    function openSimulator() {
+      simContainer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      isSimulatorOpen = true;
+
+      if (!isInitialized) {
+        initThreeEngine();
+        isInitialized = true;
+      } else {
+        onWindowResize();
+      }
+    }
+
+    function closeSimulator() {
+      simContainer.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      isSimulatorOpen = false;
+      if (isCinema) toggleCinemaMode();
+    }
+
+    // متغيرات كودك الثلاثي الأبعاد الواقعي
+    let scene, camera, renderer, controls;
+    let isPaused = false;
+    let isCinema = false;
+    let sun;
+    const defaultCamPos = new THREE.Vector3(0, 90, 210);
+    const planets = [];
+    let earthCloudsMesh = null;
+    let trackedTarget = null;
+    let targetZoomDistance = 200;
+
+    function initThreeEngine() {
+      const container = document.getElementById('three-canvas-container');
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 3000);
+      camera.position.copy(defaultCamPos);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.maxDistance = 800;
+      controls.minDistance = 2;
+
+      const ambientLight = new THREE.AmbientLight(0x333333);
+      scene.add(ambientLight);
+
+      const pointLight = new THREE.PointLight(0xffffff, 2.2, 1000);
+      scene.add(pointLight);
+
+      // روابط التيكستشرز الأصلية عالية الدقة كما في كودك الواقعي تماماً
+      const textureLoader = new THREE.TextureLoader();
+      const BASE_URL = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/';
+      const EXTRA_URL = 'https://cdn.jsdelivr.net/gh/jeromeetienne/threex.planets@master/images/';
+
+      const textures = {
+        sun: textureLoader.load(EXTRA_URL + 'sunmap.jpg'),
+        mercury: textureLoader.load(EXTRA_URL + 'mercurymap.jpg'),
+        venus: textureLoader.load(EXTRA_URL + 'venusmap.jpg'),
+        earth: textureLoader.load(BASE_URL + 'earth_atmos_2048.jpg'),
+        earthClouds: textureLoader.load(BASE_URL + 'earth_clouds_1024.png'),
+        moon: textureLoader.load(EXTRA_URL + 'moonmap1k.jpg'),
+        mars: textureLoader.load(EXTRA_URL + 'marsmap1k.jpg'),
+        jupiter: textureLoader.load(EXTRA_URL + 'jupitermap.jpg'),
+        saturn: textureLoader.load(EXTRA_URL + 'saturnmap.jpg'),
+        saturnRing: textureLoader.load(EXTRA_URL + 'saturnringcolor.jpg'),
+        uranus: textureLoader.load(EXTRA_URL + 'uranusmap.jpg'),
+        neptune: textureLoader.load(EXTRA_URL + 'neptunemap.jpg'),
+        stars: textureLoader.load(BASE_URL + 'galaxy_starfield.png')
+      };
+
+      // قبة النجوم الواقعية في الخلفية
+      const starGeo = new THREE.SphereGeometry(900, 64, 64);
+      const starMat = new THREE.MeshBasicMaterial({ map: textures.stars, side: THREE.BackSide });
+      scene.add(new THREE.Mesh(starGeo, starMat));
+
+      // مجسم الشمس بتكستشر واقعي وتوهج
+      const sunGeo = new THREE.SphereGeometry(10, 64, 64);
+      const sunMat = new THREE.MeshBasicMaterial({ map: textures.sun });
+      sun = new THREE.Mesh(sunGeo, sunMat);
+      scene.add(sun);
+
+      const glowGeo = new THREE.SphereGeometry(11.2, 64, 64);
+      const glowMat = new THREE.MeshBasicMaterial({ color: 0xffaa00, transparent: true, opacity: 0.25, side: THREE.BackSide });
+      scene.add(new THREE.Mesh(glowGeo, glowMat));
+
+      // مصفوفة بيانات الكواكب والأقمار كما في كودك الواقعي تماماً
+      const planetData = [
+        { name: 'mercury', radius: 0.8, distance: 18, speed: 0.015, tilt: 0.03, tex: textures.mercury, moons: [] },
+        { name: 'venus', radius: 1.4, distance: 27, speed: 0.011, tilt: 2.64, tex: textures.venus, moons: [] },
+        { 
+          name: 'earth', radius: 1.7, distance: 38, speed: 0.008, tilt: 0.41, tex: textures.earth, hasClouds: true,
+          moons: [{ name: 'Moon', radius: 0.35, distance: 3.2, speed: 0.03, tex: textures.moon }] 
+        },
+        { 
+          name: 'mars', radius: 1.1, distance: 50, speed: 0.006, tilt: 0.44, tex: textures.mars,
+          moons: [
+            { name: 'Phobos', radius: 0.12, distance: 1.8, speed: 0.05, tex: textures.moon },
+            { name: 'Deimos', radius: 0.09, distance: 2.5, speed: 0.035, tex: textures.moon }
+          ] 
+        },
+        { 
+          name: 'jupiter', radius: 4.5, distance: 72, speed: 0.003, tilt: 0.05, tex: textures.jupiter,
+          moons: [
+            { name: 'Io', radius: 0.25, distance: 6.2, speed: 0.04, tex: textures.moon },
+            { name: 'Europa', radius: 0.22, distance: 7.5, speed: 0.032, tex: textures.moon },
+            { name: 'Ganymede', radius: 0.38, distance: 9.0, speed: 0.025, tex: textures.moon },
+            { name: 'Callisto', radius: 0.34, distance: 10.8, speed: 0.018, tex: textures.moon }
+          ] 
+        },
+        { 
+          name: 'saturn', radius: 3.6, distance: 95, speed: 0.002, tilt: 0.47, tex: textures.saturn, hasRings: true,
+          moons: [
+            { name: 'Titan', radius: 0.36, distance: 6.8, speed: 0.025, tex: textures.moon },
+            { name: 'Enceladus', radius: 0.15, distance: 5.2, speed: 0.04, tex: textures.moon }
+          ] 
+        },
+        { 
+          name: 'uranus', radius: 2.3, distance: 114, speed: 0.0012, tilt: 1.71, tex: textures.uranus,
+          moons: [
+            { name: 'Miranda', radius: 0.14, distance: 3.5, speed: 0.035, tex: textures.moon },
+            { name: 'Titania', radius: 0.22, distance: 4.8, speed: 0.022, tex: textures.moon }
+          ] 
+        },
+        { 
+          name: 'neptune', radius: 2.2, distance: 130, speed: 0.0008, tilt: 0.49, tex: textures.neptune,
+          moons: [
+            { name: 'Triton', radius: 0.26, distance: 4.2, speed: 0.028, tex: textures.moon }
+          ] 
+        }
+      ];
+
+      planetData.forEach((data) => {
+        const orbitGeo = new THREE.RingGeometry(data.distance - 0.05, data.distance + 0.05, 128);
+        const orbitMat = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, transparent: true, opacity: 0.08 });
+        const orbit = new THREE.Mesh(orbitGeo, orbitMat);
+        orbit.rotation.x = Math.PI / 2;
+        scene.add(orbit);
+
+        const pGeo = new THREE.SphereGeometry(data.radius, 64, 64);
+        const pMat = new THREE.MeshStandardMaterial({ map: data.tex, roughness: 0.7, metalness: 0.1 });
+        const planetMesh = new THREE.Mesh(pGeo, pMat);
+        planetMesh.rotation.z = data.tilt;
+
+        if (data.hasClouds) {
+          const cloudGeo = new THREE.SphereGeometry(data.radius + 0.03, 64, 64);
+          const cloudMat = new THREE.MeshStandardMaterial({ map: textures.earthClouds, transparent: true, opacity: 0.8 });
+          earthCloudsMesh = new THREE.Mesh(cloudGeo, cloudMat);
+          planetMesh.add(earthCloudsMesh);
+        }
+
+        if (data.hasRings) {
+          const ringGeo = new THREE.RingGeometry(data.radius + 1.2, data.radius + 4.5, 128);
+          const ringMat = new THREE.MeshStandardMaterial({ map: textures.saturnRing, side: THREE.DoubleSide, transparent: true, opacity: 0.9 });
+          const ring = new THREE.Mesh(ringGeo, ringMat);
+          ring.rotation.x = Math.PI / 2;
+          planetMesh.add(ring);
+        }
+
+        const moonObjects = [];
+        data.moons.forEach(m => {
+          const mGeo = new THREE.SphereGeometry(m.radius, 32, 32);
+          const mMat = new THREE.MeshStandardMaterial({ map: m.tex, roughness: 0.8 });
+          const moonMesh = new THREE.Mesh(mGeo, mMat);
+
+          const moonPivot = new THREE.Group();
+          planetMesh.add(moonPivot);
+          moonPivot.add(moonMesh);
+          moonMesh.position.x = m.distance;
+
+          moonObjects.push({ mesh: moonMesh, pivot: moonPivot, speed: m.speed });
+        });
+
+        scene.add(planetMesh);
+
+        planets.push({
+          name: data.name,
+          mesh: planetMesh,
+          radius: data.radius,
+          distance: data.distance,
+          speed: data.speed,
+          angle: Math.random() * Math.PI * 2,
+          moons: moonObjects
+        });
+      });
+
+      animate();
+      window.addEventListener('resize', onWindowResize);
+    }
+
+    function togglePause() {
+      isPaused = !isPaused;
+      document.getElementById('pause-icon').innerText = isPaused ? '▶️' : '⏸️';
+      document.getElementById('pause-text').innerText = isPaused ? 'تشغيل الحركة' : 'إيقاف مؤقت';
+    }
+
+    function toggleCinemaMode() {
+      isCinema = !isCinema;
+      simContainer.classList.toggle('cinema-mode', isCinema);
+    }
+
+    function selectPlanet(key) {
+      if(key === 'sun') {
+        focusOn(sun, 10);
+        showPlanetInfo('sun');
+      } else {
+        const p = planets.find(item => item.name === key);
+        if(p) {
+          focusOn(p.mesh, p.radius);
+          showPlanetInfo(key);
+        }
+      }
+    }
+
+    function showPlanetInfo(key) {
+      const data = planetDetails[key];
+      if(!data) return;
+
+      document.getElementById('card-title').innerText = data.title;
+      document.getElementById('card-type').innerText = data.type;
+      document.getElementById('card-layers').innerText = '🏛️ بنية الطبقات الداخلية: ' + data.layers;
+      document.getElementById('card-stats').innerText = '⚖️ ' + data.stats;
+
+      document.getElementById('info-card').classList.add('active');
+    }
+
+    function closeInfoCard() {
+      document.getElementById('info-card').classList.remove('active');
+    }
+
+    function focusOn(targetMesh, radius = 10) {
+      trackedTarget = targetMesh;
+      targetZoomDistance = Math.max(radius * 3.8, 5.0);
+    }
+
+    function resetCamera() {
+      trackedTarget = null;
+      closeInfoCard();
+      controls.target.set(0, 0, 0);
+      camera.position.copy(defaultCamPos);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (!isPaused) {
+        if (sun) sun.rotation.y += 0.001;
+
+        planets.forEach(p => {
+          p.angle += p.speed * 0.35;
+          p.mesh.position.x = Math.cos(p.angle) * p.distance;
+          p.mesh.position.z = Math.sin(p.angle) * p.distance;
+          p.mesh.rotation.y += 0.005;
+
+          p.moons.forEach(m => {
+            m.pivot.rotation.y += m.speed;
+            m.mesh.rotation.y += 0.01;
+          });
+        });
+
+        if (earthCloudsMesh) earthCloudsMesh.rotation.y += 0.002;
+      }
+
+      if (trackedTarget) {
+        controls.target.lerp(trackedTarget.position, 0.08);
+        const currentDistance = camera.position.distanceTo(controls.target);
+        if (Math.abs(currentDistance - targetZoomDistance) > 0.1) {
+          const dir = new THREE.Vector3().subVectors(camera.position, controls.target).normalize();
+          const newCamPos = new THREE.Vector3().addVectors(controls.target, dir.multiplyScalar(targetZoomDistance));
+          camera.position.lerp(newCamPos, 0.05);
+        }
+      }
+
+      if (controls) controls.update();
+      if (renderer && scene && camera) renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+      if (!camera || !renderer) return;
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        if (isCinema) {
+          toggleCinemaMode();
+        } else if (isSimulatorOpen) {
+          closeSimulator();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
